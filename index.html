@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformer Ratio Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="welcome-page" class="page">
+        <h1>Welcome to Xmer Ratio Calculator</h1>
+        <button onclick="showPage('input-page')">Start</button>
+    </div>
+
+    <div id="input-page" class="page hidden">
+        <h2>Enter Transformer Details</h2>
+        <label>Customer Name: <input type="text" id="customer-name"></label>
+        <label>Power Rating: 
+            <input type="number" id="power-rating"> 
+            <select id="power-unit">
+                <option value="kVA">kVA</option>
+                <option value="MVA">MVA</option>
+            </select>
+        </label>
+        <label>Transformer Type:
+            <select id="transformer-type">
+                <option value="Single Phase">Single Phase</option>
+                <option value="Three Phase">Three Phase</option>
+            </select>
+        </label>
+        <label>HV Voltage: <input type="number" id="hv-voltage"></label>
+        <label>LV Voltage: <input type="number" id="lv-voltage"></label>
+        <label>Vector Group: <input type="text" id="vector-group"></label>
+        <label>HV Tap Variation (%): <input type="number" id="tap-variation"></label>
+        <label>Step Variation (%): <input type="number" id="step-variation"></label>
+
+        <div class="buttons">
+            <button onclick="calculateRatio()">Calculate</button>
+            <button onclick="clearInputs()">Clear</button>
+            <button onclick="showPage('saved-ratios-page')">Saved Ratios</button>
+            <button onclick="showPage('welcome-page')">Exit</button>
+        </div>
+    </div>
+
+    <div id="output-page" class="page hidden">
+        <h2>Calculation Results</h2>
+        <p><strong>Customer Name:</strong> <span id="out-customer"></span></p>
+        <p><strong>Power Rating:</strong> <span id="out-power"></span></p>
+        <p><strong>Vector Group:</strong> <span id="out-vector"></span></p>
+        <h3>Tap Ratios</h3>
+        <ul id="tap-results"></ul>
+        <button id="save-btn">Save</button>
+        <button onclick="showPage('input-page')">Back</button>
+    </div>
+
+    <div id="saved-ratios-page" class="page hidden">
+        <h2>Saved Ratios</h2>
+        <div id="saved-list"></div>
+        <button onclick="showPage('input-page')">Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
